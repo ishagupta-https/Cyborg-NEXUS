@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cyborg Nexus Landing Page</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="glow">CYBORG NEXUS</div>
+    <div class="subtitle">Human Intelligence × Machine Evolution</div>
+    <button class="btn" onclick="scrollDown()" aria-label="Explore System">Explore System</button>
+  </div>
+
+  <!-- ABOUT (STORYTELLING) -->
+  <div class="section" id="about">
+    <h2>What is Cyborg Nexus?</h2>
+
+    <div class="cards" style="max-width:980px;margin:40px auto 0;">
+      <div class="card reveal" style="text-align:left;">
+        <h3>Mission Statement</h3>
+        <p style="color:var(--muted);margin-top:10px;line-height:1.6;">
+          Cyborg Nexus exists to fuse human intuition with machine precision—turning data into decisions that move at neural speed.
+        </p>
+      </div>
+
+      <div class="card reveal" style="text-align:left;">
+        <h3>Futuristic Story Context</h3>
+        <p style="color:var(--muted);margin-top:10px;line-height:1.6;">
+          In 2056, humanity stops asking whether minds can evolve—because the network already answers. Systems learn faster when operators
+          guide them with purpose.
+        </p>
+      </div>
+
+      <div class="card reveal" style="text-align:left;">
+        <h3>World-Building (AI + Humans)</h3>
+        <p style="color:var(--muted);margin-top:10px;line-height:1.6;">
+          A shared interface where AI is never alone: every insight is cross-checked by human context, and every action leaves an
+          explainable trail back to the operator.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS SECTION -->
+  <div class="section" id="stats">
+    <h2 style="margin-top:40px;">System Metrics</h2>
+
+    <div class="cards" style="max-width:980px;margin:40px auto 0;">
+      <div class="card reveal" style="text-align:left; position:relative;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:var(--text);box-shadow:0 0 14px var(--text);display:inline-block;"></span>
+          <h3 style="margin:0;">
+            <span class="metricCount" data-metric="aiEfficiency" data-target="99.9" data-suffix="%">99.9</span> AI Efficiency
+          </h3>
+        </div>
+
+
+
+        <p style="color:var(--muted);margin-top:10px;line-height:1.6;">
+          Adaptive inference maintains high precision under noisy operator inputs.
+        </p>
+      </div>
+
+      <div class="card reveal" style="text-align:left; position:relative;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:var(--text);box-shadow:0 0 14px var(--text);display:inline-block;"></span>
+          <h3 style="margin:0;">
+            <span class="metricCount" data-metric="neuralConnections" data-target="1000001" data-format="compact" data-suffix="">1M+</span> Neural Connections
+          </h3>
+        </div>
+
+
+
+        <p style="color:var(--muted);margin-top:10px;line-height:1.6;">
+          Connected intelligence fabric for real-time synchronization and learning loops.
+        </p>
+      </div>
+
+      <div class="card reveal" style="text-align:left; position:relative;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:var(--text);box-shadow:0 0 14px var(--text);display:inline-block;"></span>
+          <h3 style="margin:0;">
+            <span class="metricCount" data-metric="uptime" data-target="168" data-suffix="/7">24/7</span> System Uptime
+          </h3>
+        </div>
+
+
+
+        <p style="color:var(--muted);margin-top:10px;line-height:1.6;">
+          Self-healing protocols keep the Nexus online during continuous operations.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE SECTION -->
+  <div class="section" id="timeline">
+    <h2>Timeline ⏳</h2>
+    <div class="timelineWrap" aria-label="Cyborg Nexus timeline">
+      <div class="timelineLine" aria-hidden="true"></div>
+
+      <div class="timelineItem reveal" style="--y:0;" aria-label="2050 - Neural Interface Created">
+        <div class="timelineDot" aria-hidden="true"></div>
+        <div class="timelineCard">
+          <div class="timelineYear">2050</div>
+          <div class="timelineTitle">Neural Interface Created</div>
+        </div>
+      </div>
+
+      <div class="timelineItem reveal" style="--y:1;" aria-label="2052 - Human AI Synchronization">
+        <div class="timelineDot" aria-hidden="true"></div>
+        <div class="timelineCard">
+          <div class="timelineYear">2052</div>
+          <div class="timelineTitle">Human AI Synchronization</div>
+        </div>
+      </div>
+
+      <div class="timelineItem reveal" style="--y:2;" aria-label="2056 - Cyborg Nexus Launch">
+        <div class="timelineDot" aria-hidden="true"></div>
+        <div class="timelineCard">
+          <div class="timelineYear">2056</div>
+          <div class="timelineTitle">Cyborg Nexus Launch</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGIN + AI CHATBOT -->
+  <div class="section" id="login-chat">
+    <h2>SECURE ACCESS & AI CHAT</h2>
+
+    <div class="cards" style="max-width:980px;margin:40px auto 0;">
+      <!-- Login panel -->
+      <section class="card reveal" aria-labelledby="login-title">
+        <h3 id="login-title">Login to Cyborg Nexus</h3>
+        <p style="color:var(--muted);font-size:0.95rem;margin-top:6px;">
+          Enter your credentials to establish a secure operator session.
+        </p>
+
+        <form id="loginForm" autocomplete="on" style="margin-top:18px;display:flex;flex-direction:column;gap:12px;align-items:stretch;">
+          <label style="text-align:left;">
+            <span style="display:block;margin-bottom:6px;">Operator ID</span>
+            <input
+              name="operatorId"
+              type="text"
+              required
+              placeholder="e.g. CNX-0042"
+              style="width:100%;padding:12px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(0,0,0,0.2);color:var(--text);outline:none;"
+            />
+          </label>
+
+          <label style="text-align:left;">
+            <span style="display:block;margin-bottom:6px;">Access Key</span>
+            <input
+              name="accessKey"
+              type="password"
+              required
+              placeholder="••••••••"
+              style="width:100%;padding:12px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(0,0,0,0.2);color:var(--text);outline:none;"
+            />
+          </label>
+
+          <button class="btn" type="submit" style="margin-top:8px;align-self:center;">
+            Initiate Session
+          </button>
+
+          <div id="loginStatus" role="status" aria-live="polite" style="min-height:1.2em;color:var(--muted);font-size:0.95rem;">
+            &nbsp;
+          </div>
+        </form>
+      </section>
+
+      <!-- Chat panel -->
+      <section class="card reveal" aria-labelledby="chat-title">
+        <h3 id="chat-title">Ask Cyborg AI</h3>
+        <p style="color:var(--muted);font-size:0.95rem;margin-top:6px;">
+          Operationally aware assistant. Replies are simulated for this .
+        </p>
+
+        <div class="card" style="margin-top:14px;padding:14px;background:rgba(0,0,0,0.18);border-radius:10px;border:1px solid rgba(0,255,225,0.35);">
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <div aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:var(--text);box-shadow:0 0 14px var(--text);margin-top:6px;flex:0 0 auto;"></div>
+            <div style="text-align:left;">
+              <div style="color:var(--text);font-weight:700;">Cyborg Nexus Assistant</div>
+              <div style="color:var(--muted);font-size:0.9rem;margin-top:4px;line-height:1.5;">
+                Tip: try <span style="color:var(--text);">system status</span>, <span style="color:var(--text);">optimize grid</span>, or <span style="color:var(--text);">help</span>.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="chatShell" style="margin-top:16px;display:flex;flex-direction:column;gap:12px;">
+          <div
+            id="chatLog"
+            role="log"
+            aria-live="polite"
+            style="
+              height:260px;
+              overflow:auto;
+              border:1px solid var(--border);
+              border-radius:10px;
+              padding:12px;
+              background:rgba(0,0,0,0.25);
+            "
+          ></div>
+
+          <form id="chatForm" style="display:flex;gap:10px;align-items:center;">
+            <input
+              id="chatInput"
+              type="text"
+              placeholder="Type your message..."
+              required
+              aria-label="Chat message"
+              style="
+                flex:1;
+                padding:12px 12px;
+                border-radius:8px;
+                border:1px solid var(--border);
+                background:rgba(0,0,0,0.2);
+                color:var(--text);
+                outline:none;
+              "
+            />
+            <button class="btn" type="submit" style="margin-top:0;padding:12px 18px;border-radius:8px;" disabled id="sendBtn">
+              Send
+            </button>
+          </form>
+
+          <div id="chatHint" style="color:var(--muted);font-size:0.9rem;">
+            Login is required to send messages.
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="section" id="features">
+    <h2>CORE SYSTEM MODULES</h2>
+
+
+    <div class="cards">
+      <button class="card reveal" type="button" style="text-align:left;cursor:pointer;background:var(--panel);" data-acc="ai" aria-expanded="false">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:var(--text);box-shadow:0 0 14px var(--text);display:inline-block;"></span>
+          <h3 style="margin:0;">AI Integration</h3>
+          <span class="accCue" aria-hidden="true">+</span>
+        </div>
+        <p style="color:var(--muted);margin-top:10px;line-height:1.6;">Adaptive neural systems for real-time decision making.</p>
+        <div class="accBody" hidden>
+          <p style="color:var(--muted);margin-top:10px;line-height:1.6;">
+            Mission: convert operator intent into predictive actions.
+            <br/>Capabilities: anomaly detection, adaptive policy tuning, and feedback loop calibration.
+          </p>
+        </div>
+      </button>
+
+      <button class="card reveal" type="button" style="text-align:left;cursor:pointer;background:var(--panel);" data-acc="cyber" aria-expanded="false">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:var(--text);box-shadow:0 0 14px var(--text);display:inline-block;"></span>
+          <h3 style="margin:0;">Cyber Enhancement</h3>
+          <span class="accCue" aria-hidden="true">+</span>
+        </div>
+        <p style="color:var(--muted);margin-top:10px;line-height:1.6;">Human-machine interface with augmented cognition layers.</p>
+        <div class="accBody" hidden>
+          <p style="color:var(--muted);margin-top:10px;line-height:1.6;">
+            Mission: reduce cognitive load while increasing response accuracy.
+            <br/>Features: contextual prompts, explainable decision trails, and operator-centric controls.
+          </p>
+        </div>
+      </button>
+
+      <button class="card reveal" type="button" style="text-align:left;cursor:pointer;background:var(--panel);" data-acc="grid" aria-expanded="false">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:var(--text);box-shadow:0 0 14px var(--text);display:inline-block;"></span>
+          <h3 style="margin:0;">Neural Network Grid</h3>
+          <span class="accCue" aria-hidden="true">+</span>
+        </div>
+        <p style="color:var(--muted);margin-top:10px;line-height:1.6;">Connected intelligence system for data synchronization.</p>
+        <div class="accBody" hidden>
+          <p style="color:var(--muted);margin-top:10px;line-height:1.6;">
+            Mission: synchronize signals across subsystems.
+            <br/>Systems: distributed memory, low-latency syncing, and self-healing network routes.
+          </p>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTACT / CTA FORM -->
+  <div class="section" id="contact">
+    <h2>Contact Form 📩</h2>
+    <p style="color:var(--muted);max-width:820px;margin:10px auto 0;line-height:1.6;">
+      Join the Cyborg Network. Send your details and the Nexus will register your operator profile .
+    </p>
+
+    <div class="cards" style="max-width:980px;margin:40px auto 0;">
+      <div class="card" style="text-align:left;">
+        <form id="contactForm" style="display:flex;flex-direction:column;gap:14px;">
+          <label style="text-align:left;">
+            <span style="display:block;margin-bottom:6px;color:var(--text);">Name</span>
+            <input
+              name="name"
+              type="text"
+              required
+              placeholder="e.g. Isha Gupta"
+              style="width:100%;padding:12px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(0,0,0,0.2);color:var(--text);outline:none;"
+            />
+          </label>
+
+          <label style="text-align:left;">
+            <span style="display:block;margin-bottom:6px;color:var(--text);">Email</span>
+            <input
+              name="email"
+              type="email"
+              required
+              placeholder="e.g. isha@domain.com"
+              style="width:100%;padding:12px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(0,0,0,0.2);color:var(--text);outline:none;"
+            />
+          </label>
+
+          <button class="btn" type="submit" style="margin-top:4px;align-self:flex-start;">
+            Join Cyborg Network
+          </button>
+
+          <div id="contactStatus" role="status" aria-live="polite" style="min-height:1.2em;color:var(--muted);font-size:0.95rem;">
+            &nbsp;
+          </div>
+
+          <div style="color:var(--muted);font-size:0.88rem;margin-top:-6px;line-height:1.4;">
+            By joining, you acknowledge simulated access workflows.
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footerGrid">
+
+      <div>
+        <div class="footerBrand">CYBORG NEXUS</div>
+        <div class="footerMeta">© 2056 • Designed for Future Systems by Isha Gupta</div>
+
+      </div>
+
+      <div class="footerRight">
+        <div class="footerTag">Operator-Grade Interface</div>
+        <div class="footerLinks" aria-label="Footer links">
+          <a href="#about" class="footerLink">About</a>
+          <a href="#stats" class="footerLink">Metrics</a>
+          <a href="#contact" class="footerLink">Join</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
