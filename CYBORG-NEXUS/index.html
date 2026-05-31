@@ -10,8 +10,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- LOADING SCREEN -->
+  <div id="loadingScreen" role="status" aria-live="polite">
+    <div class="loadingInner">
+      <div class="loadingTitle">CYBORG NEXUS</div>
+      <div class="loadingSubtitle">
+        <span class="loadingPrefix">INITIALIZING</span>
+        <span class="loadingDots" aria-hidden="true">...</span>
+      </div>
+      <div class="loadingBar" aria-hidden="true">
+        <div class="loadingBarFill"></div>
+      </div>
+      <div class="loadingMeta" id="loadingMeta">BOOT SEQUENCE: ONLINE</div>
+    </div>
+  </div>
+
   <!-- HERO -->
-  <div class="hero">
+  <div class="hero" id="heroParticles" data-tsparticles="heroParticles">
     <div class="glow">CYBORG NEXUS</div>
     <div class="subtitle">Human Intelligence × Machine Evolution</div>
     <button class="btn" onclick="scrollDown()" aria-label="Explore System">Explore System</button>
@@ -99,6 +114,240 @@
     </div>
   </div>
 
+  <!-- GLOBAL AI NETWORK MAP -->
+  <div class="section" id="global-ai-network">
+    <h2 style="text-align:center;">GLOBAL AI NETWORK MAP</h2>
+
+    <div class="globalDash reveal">
+      <div class="globalDashCard" role="group" aria-label="Active Operators">
+        <div class="globalDashLabel">Active Operators</div>
+        <div class="globalDashValue dashCount" data-global-metric="activeOperators" data-target="12847" aria-live="polite">12,847</div>
+      </div>
+
+      <div class="globalDashCard" role="group" aria-label="Connected Nodes">
+        <div class="globalDashLabel">Connected Nodes</div>
+        <div class="globalDashValue dashCount" data-global-metric="connectedNodes" data-target="1024000" data-format="compact" aria-live="polite">1M+</div>
+      </div>
+
+      <div class="globalDashCard" role="group" aria-label="Global AI Uptime">
+        <div class="globalDashLabel">Global AI Uptime</div>
+        <div class="globalDashValue dashCount" data-global-metric="uptime" data-target="99.99" data-format="percent" aria-live="polite">99.99%</div>
+      </div>
+    </div>
+
+    <div class="mapPanel reveal" aria-label="Global AI Network Map">
+      <div class="mapGrid" aria-hidden="true"></div>
+      <div class="scanLines" aria-hidden="true"></div>
+
+      <div class="mapStage" id="mapStage">
+        <svg
+          class="worldSvg"
+          viewBox="0 0 1000 520"
+          preserveAspectRatio="xMidYMid meet"
+          role="img"
+          aria-label="Neural network world map"
+        >
+          <defs>
+            <linearGradient id="routeGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#00ffe1" stop-opacity="0.05" />
+              <stop offset="40%" stop-color="#00ffe1" stop-opacity="0.75" />
+              <stop offset="100%" stop-color="#00ffe1" stop-opacity="0.05" />
+            </linearGradient>
+
+            <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="3.5" result="blur" />
+              <feColorMatrix
+                in="blur"
+                type="matrix"
+                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                result="glow"
+              />
+              <feMerge>
+                <feMergeNode in="glow" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            <style>
+              .routePath{ stroke: url(#routeGrad); stroke-width:2.2; fill:none; opacity:0.9; }
+              .routeAnim{ stroke-dasharray: 10 14; animation: dashMove 2.2s linear infinite; }
+              @keyframes dashMove{ from{ stroke-dashoffset: 0; } to{ stroke-dashoffset: -200; } }
+              .cityPulse{ animation: cityPulse 1.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+              @keyframes cityPulse{ 0%,100%{ transform: scale(0.95); opacity:0.85; } 50%{ transform: scale(1.35); opacity:1; } }
+            </style>
+          </defs>
+
+          <!-- Soft world silhouette (lightweight, performance-friendly) -->
+          <g opacity="0.55">
+            <path
+              d="M120,205 C140,155 210,120 255,132 C280,138 292,160 315,166 C342,173 362,160 390,152 C428,141 460,122 503,125 C540,128 560,155 590,170 C620,185 645,180 672,170 C700,160 725,150 760,160 C800,171 820,210 805,238 C792,262 764,275 744,292 C725,308 718,340 690,360 C662,380 610,380 580,365 C540,345 520,352 488,370 C455,388 420,410 380,404 C335,397 300,366 272,332 C250,305 245,275 215,258 C185,241 160,230 120,205 Z"
+              fill="rgba(0,255,225,0.04)"
+              stroke="rgba(0,255,225,0.18)"
+              stroke-width="1"
+            />
+          </g>
+
+          <!-- Routes (neural network) -->
+          <g id="routes" filter="url(#neonGlow)">
+            <!-- NY -> London -->
+            <path class="routePath routeAnim" data-route="ny-london" d="M365 245 C430 165, 520 155, 590 205" />
+            <!-- London -> Berlin -->
+            <path class="routePath routeAnim" data-route="london-berlin" d="M590 205 C610 205, 635 215, 648 225" />
+            <!-- Berlin -> Dubai -->
+            <path class="routePath routeAnim" data-route="berlin-dubai" d="M648 225 C700 255, 735 290, 735 320" />
+            <!-- Dubai -> Mumbai -->
+            <path class="routePath routeAnim" data-route="dubai-mumbai" d="M735 320 C760 340, 765 360, 780 375" />
+            <!-- Mumbai -> Singapore -->
+            <path class="routePath routeAnim" data-route="mumbai-singapore" d="M780 375 C800 395, 820 405, 835 420" />
+            <!-- Singapore -> Tokyo -->
+            <path class="routePath routeAnim" data-route="singapore-tokyo" d="M835 420 C860 445, 890 455, 905 420" />
+            <!-- Tokyo -> Sydney -->
+            <path class="routePath routeAnim" data-route="tokyo-sydney" d="M905 420 C900 435, 860 465, 830 485" />
+
+            <!-- NY -> Tokyo (long neural spike) -->
+            <path class="routePath routeAnim" data-route="ny-tokyo" d="M365 245 C520 140, 720 150, 905 420" />
+          </g>
+
+          <!-- City dots -->
+          <g id="cities" filter="url(#neonGlow)">
+            <g class="city" role="button" tabindex="0" aria-label="New York">
+              <circle class="cityDot cityPulse" data-city="New York" data-active="8421" data-connected="312000" cx="365" cy="245" r="6.2" fill="#00ffe1" />
+              <circle class="cityGlow" cx="365" cy="245" r="14" fill="rgba(0,255,225,0.12)" />
+            </g>
+
+            <g class="city" role="button" tabindex="0" aria-label="London">
+              <circle class="cityDot cityPulse" data-city="London" data-active="2210" data-connected="188000" cx="590" cy="205" r="5.9" fill="#00ffe1" style="animation-delay:0.2s" />
+              <circle class="cityGlow" cx="590" cy="205" r="13" fill="rgba(0,255,225,0.12)" />
+            </g>
+
+            <g class="city" role="button" tabindex="0" aria-label="Berlin">
+              <circle class="cityDot cityPulse" data-city="Berlin" data-active="980" data-connected="102400" cx="648" cy="225" r="5.3" fill="#00ffe1" style="animation-delay:0.45s" />
+              <circle class="cityGlow" cx="648" cy="225" r="12" fill="rgba(0,255,225,0.12)" />
+            </g>
+
+            <g class="city" role="button" tabindex="0" aria-label="Tokyo">
+              <circle class="cityDot cityPulse" data-city="Tokyo" data-active="3340" data-connected="420000" cx="905" cy="420" r="6.4" fill="#00ffe1" style="animation-delay:0.15s" />
+              <circle class="cityGlow" cx="905" cy="420" r="15" fill="rgba(0,255,225,0.12)" />
+            </g>
+
+            <g class="city" role="button" tabindex="0" aria-label="Mumbai">
+              <circle class="cityDot cityPulse" data-city="Mumbai" data-active="2745" data-connected="305000" cx="780" cy="375" r="5.8" fill="#00ffe1" style="animation-delay:0.33s" />
+              <circle class="cityGlow" cx="780" cy="375" r="13" fill="rgba(0,255,225,0.12)" />
+            </g>
+
+            <g class="city" role="button" tabindex="0" aria-label="Singapore">
+              <circle class="cityDot cityPulse" data-city="Singapore" data-active="1985" data-connected="244000" cx="835" cy="420" r="5.4" fill="#00ffe1" style="animation-delay:0.58s" />
+              <circle class="cityGlow" cx="835" cy="420" r="12" fill="rgba(0,255,225,0.12)" />
+            </g>
+
+            <g class="city" role="button" tabindex="0" aria-label="Dubai">
+              <circle class="cityDot cityPulse" data-city="Dubai" data-active="1510" data-connected="178000" cx="735" cy="320" r="5.2" fill="#00ffe1" style="animation-delay:0.25s" />
+              <circle class="cityGlow" cx="735" cy="320" r="12" fill="rgba(0,255,225,0.12)" />
+            </g>
+
+            <g class="city" role="button" tabindex="0" aria-label="Sydney">
+              <circle class="cityDot cityPulse" data-city="Sydney" data-active="910" data-connected="136000" cx="830" cy="485" r="5.3" fill="#00ffe1" style="animation-delay:0.52s" />
+              <circle class="cityGlow" cx="830" cy="485" r="12" fill="rgba(0,255,225,0.12)" />
+            </g>
+          </g>
+        </svg>
+
+        <div id="globalMapTooltip" class="globalTooltip" role="tooltip" aria-hidden="true">
+          <div class="globalTooltipTitle" id="globalMapTooltipCity">City</div>
+          <div class="globalTooltipRow">
+            <span class="globalTooltipKey">Active Operators</span>
+            <span class="globalTooltipVal" id="globalMapTooltipActive">0</span>
+          </div>
+          <div class="globalTooltipRow">
+            <span class="globalTooltipKey">Connected Nodes</span>
+            <span class="globalTooltipVal" id="globalMapTooltipConnected">0</span>
+          </div>
+          <div class="globalTooltipHint">NEURAL NODE ACTIVE</div>
+          <div class="globalTooltipArrow" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACHIEVEMENTS & CERTIFICATIONS SECTION -->
+  <div class="section" id="achievements">
+    <h2 style="text-align:center;">🏆 ACHIEVEMENTS & SYSTEM CERTIFICATIONS</h2>
+    <p style="color:var(--muted);max-width:860px;margin:12px auto 0;line-height:1.6;">
+      Verified milestones proving the strength, reliability, and evolution of the Cyborg Nexus Network.
+    </p>
+
+    <div class="achHoloShell" aria-hidden="true">
+      <div class="achHoloScan"></div>
+      <div class="achHoloParticles"></div>
+      <canvas class="achFloatParticles" id="achParticles" aria-hidden="true"></canvas>
+    </div>
+
+
+    <div class="achBadgesGrid">
+      <article class="achCard reveal" tabindex="0" aria-label="AI Certified">
+        <div class="achIcon" aria-hidden="true">⟠</div>
+        <h3 class="achTitle">AI Certified</h3>
+        <p class="achDesc">
+          Advanced artificial intelligence systems validated for adaptive decision-making and autonomous learning.
+        </p>
+      </article>
+
+      <article class="achCard reveal" tabindex="0" aria-label="Quantum Ready">
+        <div class="achIcon" aria-hidden="true">⌬</div>
+        <h3 class="achTitle">Quantum Ready</h3>
+        <p class="achDesc">
+          Infrastructure prepared for next-generation quantum computing integration.
+        </p>
+      </article>
+
+      <article class="achCard reveal" tabindex="0" aria-label="Neural Compatible">
+        <div class="achIcon" aria-hidden="true">◎</div>
+        <h3 class="achTitle">Neural Compatible</h3>
+        <p class="achDesc">
+          Seamless synchronization between human operators and machine intelligence.
+        </p>
+      </article>
+
+      <article class="achCard reveal" tabindex="0" aria-label="99.9% Reliability">
+        <div class="achIcon" aria-hidden="true">▣</div>
+        <h3 class="achTitle">99.9% Reliability</h3>
+        <p class="achDesc">
+          High-availability architecture with self-healing protocols and continuous uptime.
+        </p>
+      </article>
+    </div>
+
+    <div class="achStats" aria-label="Achievement Statistics">
+      <div class="achStat reveal">
+        <div class="achStatKey">Active Operators</div>
+        <div class="achStatVal" data-ach-target="12847" data-ach-format="number" aria-live="polite">&nbsp;</div>
+
+
+      </div>
+      <div class="achStat reveal">
+        <div class="achStatKey">Connected Nodes</div>
+        <div class="achStatVal" data-ach-target="1000000" data-ach-format="compact" data-ach-suffix="+" aria-live="polite">&nbsp;</div>
+
+
+
+      </div>
+
+      <div class="achStat reveal">
+        <div class="achStatKey">System Uptime</div>
+        <div class="achStatVal" data-ach-target="99.99" data-ach-format="percent" data-ach-suffix="%" aria-live="polite">&nbsp;</div>
+
+      </div>
+
+      <div class="achStat reveal">
+        <div class="achStatKey">Global AI Hubs</div>
+        <div class="achStatVal" data-ach-target="256" data-ach-format="number" aria-live="polite">&nbsp;</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
   <!-- TIMELINE SECTION -->
   <div class="section" id="timeline">
     <h2>Timeline ⏳</h2>
@@ -180,7 +429,7 @@
       <section class="card reveal" aria-labelledby="chat-title">
         <h3 id="chat-title">Ask Cyborg AI</h3>
         <p style="color:var(--muted);font-size:0.95rem;margin-top:6px;">
-          Operationally aware assistant. Replies are simulated for this .
+          Operationally aware assistant. Replies are simulated for this.
         </p>
 
         <div class="card" style="margin-top:14px;padding:14px;background:rgba(0,0,0,0.18);border-radius:10px;border:1px solid rgba(0,255,225,0.35);">
@@ -240,9 +489,12 @@
     </div>
   </div>
 
+
+
   <!-- FEATURES -->
   <div class="section" id="features">
     <h2>CORE SYSTEM MODULES</h2>
+
 
 
     <div class="cards">
@@ -297,7 +549,7 @@
   <div class="section" id="contact">
     <h2>Contact Form 📩</h2>
     <p style="color:var(--muted);max-width:820px;margin:10px auto 0;line-height:1.6;">
-      Join the Cyborg Network. Send your details and the Nexus will register your operator profile .
+      Join the Cyborg Network. Send your details and the Nexus will register your operator profile.
     </p>
 
     <div class="cards" style="max-width:980px;margin:40px auto 0;">
@@ -364,6 +616,45 @@
   </footer>
 
 
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.3/tsparticles.bundle.min.js"></script>
   <script src="script.js"></script>
+  <script src="webspeech-voice.js"></script>
+  <script>
+    (function(){
+      const loading = document.getElementById('loadingScreen');
+      function done(){
+        if (!loading) return;
+        loading.classList.add('is-hidden');
+      }
+      // 2s ke baad show karenge
+      const metaEl = document.getElementById('loadingMeta');
+      let stage = 0;
+      const stages = [
+        'BOOT SEQUENCE: ONLINE',
+        'NEURAL FABRIC: SYNCHRONIZING',
+        'AI CORE: CALIBRATING',
+        'SECURITY: HARDENED',
+        'READY: ENTERING CYBER SPACE'
+      ];
+
+      function runStages(){
+        if (metaEl) metaEl.textContent = stages[Math.min(stage, stages.length - 1)];
+        stage += 1;
+      }
+
+      window.addEventListener('load', function(){
+        runStages();
+        const interval = setInterval(() => {
+          runStages();
+          if (stage >= stages.length) clearInterval(interval);
+        }, 350);
+        setTimeout(done, 4000);
+      });
+      // Fallback: agar load event na ho
+      setTimeout(done, 2500);
+    })();
+  </script>
 </body>
 </html>
+
+
